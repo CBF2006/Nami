@@ -17,6 +17,7 @@
     "@esbuild-kit/core-utils": "^3.3.2",
     "@esbuild-kit/esm-loader": "^2.6.5",
     "@neondatabase/serverless": "^1.0.0",
+    "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-popover": "^1.1.13",
