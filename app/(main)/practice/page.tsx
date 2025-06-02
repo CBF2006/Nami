@@ -7,6 +7,7 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Promo } from "@/components/promo";
 import { Quests } from "@/components/quests";
 import Image from "next/image";
+import PracticeTabs from "./practice-tabs";
 
 const PracticePage = async () => {
   const userProgress = await getUserProgress();
@@ -58,10 +59,10 @@ const PracticePage = async () => {
                 Practice
             </h1>
             <p className="text-muted-foreground text-center text-lg mb-6">
-                Learn more with content tailored to your interests and level.
+                Learn more through a variety of videos, flashcards, and voice rooms.
             </p>
             
-            <VideoList />
+            <PracticeTabs />
         </div>
       </FeedWrapper>
     </div>
