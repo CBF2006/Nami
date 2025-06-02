@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 import { ExitModal } from "@/components/modals/exit-modal";
@@ -7,7 +7,7 @@ import { HeartsModal } from "@/components/modals/hearts-modal";
 import { PracticeModal } from "@/components/modals/practice-modal";
 import "./globals.css";
 
-const font = Nunito({ subsets: ["latin"] });
+const font = Noto_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Nami",

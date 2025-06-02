@@ -9,9 +9,14 @@ import EditProfile from "@/app/(main)/profile/edit-profile";
 import React from "react";
 import { Badge } from "./ui/badge";
 
+interface Interest {
+  label: string;
+  color: string;
+}
+
 const Profile = () => {
   const { isLoaded, isSignedIn, user } = useUser();
-  const [interests, setInterests] = React.useState<string[]>([]);
+  const [interests, setInterests] = React.useState<Interest[]>([]);
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -42,14 +47,18 @@ const Profile = () => {
       <div>
         <div className="flex flex-wrap gap-2">
           {interests.length > 0 && interests.map((interest) => (
-            <Badge key={interest} variant="secondary">
-              {interest}
+            <Badge 
+            key={interest.label} 
+            variant="secondary"
+            className={`bg-${interest.color}-500 text-white`}
+            >
+              {interest.label}
             </Badge>
           ))}
         </div>
       </div>
 
-
+    <div className="flex gap-2">
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
           <Button variant="primary" size="lg">
@@ -74,6 +83,8 @@ const Profile = () => {
         Manage Account
       </Button>
     </div>
+
+  </div>
   );
 };
 
