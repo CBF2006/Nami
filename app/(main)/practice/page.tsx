@@ -32,6 +32,10 @@ const PracticePage = async () => {
 
   const isPro = !!userSubscription?.isActive;
 
+  const activeCourse = userProgress.activeCourse;
+
+  console.log("userProgress.activeCourse:", userProgress.activeCourse);
+
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWrapper>
@@ -62,7 +66,7 @@ const PracticePage = async () => {
                 Learn more through a variety of videos, flashcards, and voice rooms.
             </p>
             
-            <PracticeTabs />
+            <PracticeTabs activeCourseId={activeCourse.id}/>
         </div>
       </FeedWrapper>
     </div>

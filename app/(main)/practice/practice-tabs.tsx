@@ -1,9 +1,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { VideoList } from "@/components/video-list";
-import Flashcards from "./flashcards";
+import Flashcard from "./flashcard";
 import VoiceRooms from "./voice-rooms";
 
-const PracticeTabs = () => {
+type PracticeTabsProps = {
+    activeCourseId: number;
+};
+
+const PracticeTabs = ({ activeCourseId }: PracticeTabsProps) => {
     return (
         <Tabs defaultValue="videos" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
@@ -13,11 +17,12 @@ const PracticeTabs = () => {
             </TabsList>
 
             <TabsContent value="videos">
-                <VideoList />
+                <VideoList activeCourseId={activeCourseId}/>
             </TabsContent>
 
             <TabsContent value="flashcards">
-                <Flashcards />
+                <Flashcard
+                />
             </TabsContent>
 
             <TabsContent value="voicerooms">

@@ -29,6 +29,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.43.0",
+    "embla-carousel-react": "^8.6.0",
     "esbuild": "^0.25.2",
     "glob": "^11.0.1",
     "lucide-react": "^0.383.0",

@@ -1,5 +1,3 @@
-"use client";
-
 import TopicSection from "./topic-section";
 
 const japaneseVideos = [
@@ -12,11 +10,17 @@ const koreanVideos = [
   { videoId: "twPeQ3xHy3U?si=xsstIJ4QJ00HyTCk", title: "Learn Korean Vowels" },
 ];
 
-export const VideoList = () => {
+type VideoListProps = {
+  activeCourseId: number;
+};
+
+export const VideoList = ({ activeCourseId }: VideoListProps) => {
   return (
     <div className="w-full flex flex-col items-center">
-      <TopicSection title="Japanese" videos={japaneseVideos} />
-      <TopicSection title="Korean" videos={koreanVideos} />
+      {activeCourseId === 1 && <TopicSection title="Korean" videos={koreanVideos} />}
+      {activeCourseId === 2 && <TopicSection title="Japanese" videos={japaneseVideos} />}
     </div>
   );
 };
+
+export default VideoList;
