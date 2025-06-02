@@ -14,7 +14,7 @@ const VoiceRooms = () => {
               className="w-16 h-16 rounded-lg"
             />
             <div>
-              <h1 className="text-xl font-bold">Chill Vibes</h1>
+              <h1 className="text-xl font-bold">노래방</h1>
               <h3 className="text-lg text-gray-600">Korean</h3>
             </div>
           </div>
@@ -41,7 +41,7 @@ const VoiceRooms = () => {
               className="w-16 h-16 rounded-lg"
             />
             <div>
-              <h1 className="text-xl font-bold">Chill Vibes</h1>
+              <h1 className="text-xl font-bold">Une journée à Paris</h1>
               <h3 className="text-lg text-gray-600">French</h3>
             </div>
           </div>
@@ -68,7 +68,7 @@ const VoiceRooms = () => {
               className="w-16 h-16 rounded-lg"
             />
             <div>
-              <h1 className="text-xl font-bold">Chill Vibes</h1>
+              <h1 className="text-xl font-bold">¡Fiesta divertida!</h1>
               <h3 className="text-lg text-gray-600">Spanish</h3>
             </div>
           </div>

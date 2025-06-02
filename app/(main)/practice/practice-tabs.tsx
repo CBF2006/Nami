@@ -7,7 +7,7 @@ const PracticeTabs = () => {
     return (
         <Tabs defaultValue="videos" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="videos">Video</TabsTrigger>
+                <TabsTrigger value="videos">Videos</TabsTrigger>
                 <TabsTrigger value="flashcards">Flashcards</TabsTrigger>
                 <TabsTrigger value="voicerooms">Voice Rooms</TabsTrigger>
             </TabsList>
