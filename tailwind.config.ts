@@ -89,15 +89,15 @@ const config = {
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
-          glow: {
-            '0%': 'box-shadow: 0 0 0px rgba(125, 216, 226, 0);',
-            '50%': 'box-shadow: 0 0 20px 6px rgba(125, 216, 226, 0.6);',
-            '100%': 'box-shadow: 0 0 0px rgba(125, 216, 226, 0);',
-          },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        glow: {
+          '0%': { boxShadow: '0 0 0px rgba(125, 216, 226, 0)' },
+          '50%': { boxShadow: '0 0 20px 6px rgba(125, 216, 226, 0.6)' },
+          '100%': { boxShadow: '0 0 0px rgba(125, 216, 226, 0)' },
         },
       },
       animation: {

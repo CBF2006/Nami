@@ -12,6 +12,7 @@ import { Loader } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { SidebarItem } from "./sidebaritem";
+import { Button } from "./ui/button";
 
 type Props = {
     className?: string;
@@ -70,12 +71,19 @@ export const Sidebar = ({ className }: Props) => {
                 
             </div>
             <div className="p-4">
-                <ClerkLoading>
-                    <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
-                </ClerkLoading>
-                <ClerkLoaded>
-                    <UserButton afterSignOutUrl="/" />
-                </ClerkLoaded>
+                <div className="flex justify-between items-center">
+                    <ClerkLoading>
+                        <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
+                    </ClerkLoading>
+                    <ClerkLoaded>
+                        <UserButton afterSignOutUrl="/" />
+                    </ClerkLoaded>
+                    <Link href="/about">
+                        <Button variant="ghost">
+                            About
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

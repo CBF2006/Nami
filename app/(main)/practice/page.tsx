@@ -7,6 +7,7 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Promo } from "@/components/promo";
 import { Quests } from "@/components/quests";
 import Image from "next/image";
+import PracticeTabs from "./practice-tabs";
 
 const PracticePage = async () => {
   const userProgress = await getUserProgress();
@@ -30,6 +31,10 @@ const PracticePage = async () => {
   }
 
   const isPro = !!userSubscription?.isActive;
+
+  const activeCourse = userProgress.activeCourse;
+
+  console.log("userProgress.activeCourse:", userProgress.activeCourse);
 
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
@@ -58,10 +63,10 @@ const PracticePage = async () => {
                 Practice
             </h1>
             <p className="text-muted-foreground text-center text-lg mb-6">
-                Learn more with content tailored to your interests and level.
+                Learn more through a variety of videos, flashcards, and voice rooms.
             </p>
             
-            <VideoList />
+            <PracticeTabs activeCourseId={activeCourse.id}/>
         </div>
       </FeedWrapper>
     </div>
