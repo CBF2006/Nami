@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 interface Interest {
-    label: string;
-    color: string;
+  label: string;
+  color: string;
 }
 
 interface EditProfileProps {
-    interests: Interest[];
-    onSave: (interests: Interest[]) => void;
+  interests: Interest[];
+  onSave: (interests: Interest[]) => void;
 }
 
 const allInterests: Interest[] = [
@@ -64,20 +64,25 @@ const EditProfile = ({ interests, onSave }: EditProfileProps) => {
             key={label}
             variant={selectedInterests.includes(label) ? "secondary" : "outline"}
             onClick={() => toggleInterest(label)}
-            className={`cursor-pointer bg-${color}-500 text-white`}
+            className={`
+              cursor-pointer
+              transition-colors duration-200
+              ${
+                selectedInterests.includes(label)
+                  ? `bg-${color}-600 text-white shadow-lg`
+                  : `bg-white text-gray-700 border border-${color}-400`
+              }
+            `}
           >
             {label}
           </Badge>
         ))}
       </div>
-      <Button
-        onClick={handleSave}
-        className="mt-4"
-      >
+      <Button onClick={handleSave} className="mt-4">
         Save
       </Button>
     </div>
   );
-}
+};
 
 export default EditProfile;
