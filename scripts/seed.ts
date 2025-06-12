@@ -27,16 +27,21 @@ const main = async () => {
             { id: 1, title: "Korean", imageSrc: "/kr.svg" },
             { id: 2, title: "Japanese", imageSrc: "/jp.svg" },
             { id: 3, title: "Spanish", imageSrc: "/mx.svg" },
+            { id: 4, title: "French", imageSrc: "/fr.svg" },
         ]);
 
         await db.insert(schema.units).values([
             // Korean
             { id: 1, courseId: 1, title: "Unit 1", description: "Learn Basic Hangeul", order: 1, bg: "/hangul.png", color: "bg-red-500" },
-            { id: 2, courseId: 1, title: "Unit 2", description: "Learn Complex Hangeul", order: 2, bg: "/hangul.png", color: "bg-blue-500" },
-            { id: 3, courseId: 1, title: "Unit 3", description: "Learn Basic Grammar and Phrases", order: 3, bg: "/hangul.png", color: "bg-pink-500" },
+            { id: 2, courseId: 1, title: "Unit 2", description: "Learn Complex Hangeul", order: 2, bg: "/hangul.png", color: "bg-yellow-500" },
+            { id: 3, courseId: 1, title: "Unit 3", description: "Learn Basic Grammar and Phrases", order: 3, bg: "/hangul.png", color: "bg-blue-500" },
             // Japanese
-            { id: 4, courseId: 2, title: "Unit 1", description: "Learn Hiragana", order: 1, bg: "temple.svg", color: "bg-red-500" },
-            { id: 5, courseId: 2, title: "Unit 2", description: "Learn Basic Greetings and Phrases", order: 2, bg: "town.svg", color: "bg-pink-500" },
+            { id: 4, courseId: 2, title: "Unit 1", description: "Learn Hiragana", order: 1, bg: "/temple.svg", color: "bg-red-500" },
+            { id: 5, courseId: 2, title: "Unit 2", description: "Learn Basic Greetings and Phrases", order: 2, bg: "/town.svg", color: "bg-pink-500" },
+            // Spanish
+            { id: 6, courseId: 3, title: "Unit 1", description: "Learn Basic Spanish", order: 1, bg: "/latam.jpg", color: "bg-green-500" },
+            // French
+            { id: 7, courseId: 4, title: "Unit 1", description: "Learn Basic French", order: 1, bg: "/paris.jpg", color: "bg-blue-500" },
         ]);
 
         await db.insert(schema.lessons).values([
@@ -64,6 +69,18 @@ const main = async () => {
             { id: 18, unitId: 4, order: 3, title: "JP - Hiragana 3" },
             { id: 19, unitId: 4, order: 4, title: "JP - Hiragana 4" },
             { id: 20, unitId: 4, order: 5, title: "JP - Hiragana Test" },
+            // Spanish - Unit 1
+            { id: 21, unitId: 6, order: 1, title: "ES - Spanish 1" },
+            { id: 22, unitId: 6, order: 2, title: "ES - Spanish 2" },
+            { id: 23, unitId: 6, order: 3, title: "ES - Spanish 3" },
+            { id: 24, unitId: 6, order: 4, title: "ES - Spanish 4" },
+            { id: 25, unitId: 6, order: 5, title: "ES - Spanish Test" },
+            // French - Unit 1
+            { id: 26, unitId: 7, order: 1, title: "FR - French 1" },
+            { id: 27, unitId: 7, order: 2, title: "FR - French 2" },
+            { id: 28, unitId: 7, order: 3, title: "FR - French 3" },
+            { id: 29, unitId: 7, order: 4, title: "FR - French 4" },
+            { id: 30, unitId: 7, order: 5, title: "FR - French Test" },
         ]);
 
         await db.insert(schema.challenges).values([ // KR - Lesson 1
@@ -156,6 +173,60 @@ const main = async () => {
             { id: 55, lessonId: 20, type: "LISTEN_SELECT", order: 5, question: '', audioSrc: "/jp_wo.mp3" },
             { id: 56, lessonId: 20, type: "LISTEN_SELECT", order: 6, question: '', audioSrc: "/jp_yo.mp3" },
             { id: 57, lessonId: 20, type: "SELECT", order: 7, question: 'Which one of these is "the home"?', audioSrc: "" },
+        ]);
+
+        await db.insert(schema.challenges).values([
+            // Spanish Lesson 1
+            { id: 100, lessonId: 21, type: "ASSIST", order: 1, question: "Hello" },
+            { id: 101, lessonId: 21, type: "FILL", order: 2, question: "Buenos {blank}" },
+            { id: 102, lessonId: 21, type: "MATCH", order: 3, question: "Match the Spanish greetings with their meanings" },
+        ]);
+
+        await db.insert(schema.challenges).values([
+            // French Lesson 1
+            { id: 200, lessonId: 26, type: "ASSIST", order: 1, question: "What's your name?" },
+            { id: 201, lessonId: 26, type: "FILL", order: 2, question: "Je {blank} Marie." },
+            { id: 202, lessonId: 26, type: "LISTEN_SELECT", order: 3, question: "", audioSrc: "/fr_bonjour.mp3" },
+        ]);
+
+        await db.insert(schema.challenges).values([
+            // Prevent Stuff From Breaking
+            { id: 103, lessonId: 22, type: "SELECT", order: 1, question: "" },
+            { id: 203, lessonId: 27, type: "SELECT", order: 2, question: "" },
+        ]);
+
+        await db.insert(schema.challengeOptions).values([  // ES - Lesson 1
+            { challengeId: 100, text: "Hola", correct: true, audioSrc: "/es_hola.mp3" },
+            { challengeId: 100, text: "Gracias", correct: false, audioSrc: "/es_gracias.mp3" },
+            { challengeId: 100, text: "Adiós", correct: false, audioSrc: "/es_adios.mp3" },
+            { challengeId: 100, text: "Bien", correct: false, audioSrc: "es_bien.mp3" },
+
+            { challengeId: 101, text: "días", correct: true, audioSrc: "/es_dias.mp3" },
+            { challengeId: 101, text: "noches", correct: false, audioSrc: "/es_noches.mp3" },
+            { challengeId: 101, text: "tardes", correct: false, audioSrc: "/es_tardes.mp3" },
+
+            { challengeId: 102, text: "Hola", isPrompt: true, matchId: "hello", correct: true, audioSrc: "" },
+            { challengeId: 102, text: "Hello", isPrompt: false, matchId: "hello", correct: true, audioSrc: "" },
+
+            { challengeId: 102, text: "Buenos días", isPrompt: true, matchId: "morning", correct: true, audioSrc: "" },
+            { challengeId: 102, text: "Good morning", isPrompt: false, matchId: "morning", correct: true, audioSrc: "" },
+
+            { challengeId: 102, text: "Buenas noches", isPrompt: true, matchId: "night", correct: true, audioSrc: "" },
+            { challengeId: 102, text: "Good night", isPrompt: false, matchId: "night", correct: true, audioSrc: "" },
+        ]);
+
+        await db.insert(schema.challengeOptions).values([  // ES - Lesson 1
+            { challengeId: 200, text: "Je m'appelle Marie", correct: false },
+            { challengeId: 200, text: "Comment tu t'appelles?", correct: true },
+            { challengeId: 200, text: "Comment ça va?", correct: false },
+
+            { challengeId: 201, text: "est", correct: false },
+            { challengeId: 201, text: "es", correct: false },
+            { challengeId: 201, text: "suis", correct: true },
+
+            { challengeId: 202, text: "Bonsoir", correct: false, audioSrc: "/fr_bonsoir.mp3" },
+            { challengeId: 202, text: "Bonjour", correct: true, audioSrc: "/fr_bonjour.mp3" },
+            { challengeId: 202, text: "Salut", correct: false, audioSrc: "/fr_salut.mp3" },
         ]);
 
         await db.insert(schema.challengeOptions).values([ // KR - Lesson 1
